@@ -10,16 +10,19 @@
     CONTROLLER_NODES: "{{ hostvars[groups['control-plane'][0]].ansible_default_ipv4.address }}"
     AGENT_NODES: "{{ hostvars[groups['control-plane'][0]].ansible_default_ipv4.address }}"
 
+# ===
+# TODO: this will be remove after devstack be integrated with tf-test
 - name: Sleep to contrail to start
   wait_for:
     timeout: 300
 
 - name: Check contrail-status
   command: contrail-status
+  become: yes
   register: result
   ignore_errors: True
 
 - name: Debug contrail-status
   debug:
     var: result.stdout_lines
-
+# =====
