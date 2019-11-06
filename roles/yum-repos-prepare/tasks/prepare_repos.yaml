@@ -86,8 +86,9 @@
         description: CentOS epel mirror
         file: epel
         baseurl: "{{ repos_baseurl }}/epel"
-        enabled: "{{ use_epel }}"
+        enabled: yes
         gpgcheck: no
+        state: "{{ use_epel | ternary('present','absent') }}"
     - name: prepare docker mirror repo file
       yum_repository:
         name: docker-ce-stable-mirror
