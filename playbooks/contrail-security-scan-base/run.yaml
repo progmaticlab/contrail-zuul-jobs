@@ -1,4 +1,5 @@
 - hosts: all
+  become: true
   roles:
     - yum-repos-prepare
     - contrail-scan-container
