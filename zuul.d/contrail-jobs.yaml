@@ -10,7 +10,7 @@
     name: contrail-vnc-build-rhel7-queens
     parent: contrail-vnc-build-base
     nodeset: builder-rhel-7
-    timeout: 7200
+    timeout: 10800
     vars:
       openstack_version: queens
 
