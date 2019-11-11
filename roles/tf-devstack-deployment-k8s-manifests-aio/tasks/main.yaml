@@ -1,9 +1,9 @@
 ---
 
-- name: Run startup.sh
-  shell: "PATH=/usr/sbin:$PATH ./k8s_manifests/startup.sh"
+- name: Run tf-devstack/startup.sh
+  shell: "PATH=/usr/sbin:$PATH {{ devstack_dir }}/k8s_manifests/startup.sh"
   args:
-    chdir: "{{ devstack_dir }}"
+    chdir: "{{ working_dir }}"
   environment:
     CONTAINER_REGISTRY: "{{ contrail_docker_registry }}"
     CONTRAIL_CONTAINER_TAG: "{{ container_tag }}"
@@ -26,3 +26,16 @@
   debug:
     var: result.stdout_lines
 # =====
+
+
+- name: Run startup.sh
+  shell: "PATH=/usr/sbin:$PATH {{ tf_test_dir }}/contrail-sanity/run.sh"
+  args:
+    chdir: "{{ working_dir }}"
+
+  # should be inherited from tf-devstach profile
+  # environment:
+  #   CONTAINER_REGISTRY: "{{ contrail_docker_registry }}"
+  #   CONTRAIL_CONTAINER_TAG: "{{ container_tag }}"
+  #   CONTROLLER_NODES: "{{ hostvars[groups['control-plane'][0]].ansible_default_ipv4.address }}"
+  #   AGENT_NODES: "{{ hostvars[groups['control-plane'][0]].ansible_default_ipv4.address }}"

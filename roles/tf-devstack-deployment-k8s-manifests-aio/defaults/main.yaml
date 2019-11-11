@@ -1,6 +1,8 @@
 ---
 
+working_dir: '{{ ansible_env.HOME }}'
 devstack_dir: '{{ ansible_env.HOME }}/{{ zuul.projects | selectattr("short_name", "equalto", "tf-devstack") | map(attribute="src_dir") | list | first }}'
+tf_test_dir: '{{ ansible_env.HOME }}/{{ zuul.projects | selectattr("short_name", "equalto", "tf-test") | map(attribute="src_dir") | list | first }}'
 
 contrail_docker_registry: "{{ nexus.fqdn }}:{{ nexus.registry.tungsten_ci }}"
 
