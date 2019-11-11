@@ -5,12 +5,6 @@
         label: ubuntu-xenial-xsmall
 
 - nodeset:
-    name: ubuntu-xenial-large
-    nodes:
-      - name: builder
-        label: ubuntu-xenial-large
-
-- nodeset:
     name: builder-centos-7
     nodes:
       - name: builder
@@ -38,7 +32,7 @@
     name: c7-systest-c-aio
     nodes:
       - name: kolla-aio
-        label: centos-7-large
+        label: centos-7-sanity
     groups:
       - name: control-plane
         nodes:
