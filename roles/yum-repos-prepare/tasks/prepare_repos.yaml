@@ -98,6 +98,8 @@
         enabled: "{{ use_docker_repo }}"
         gpgcheck: yes
         gpgkey: https://download.docker.com/linux/centos/gpg
+        when:
+          - 'ansible_distribution != "RedHat"'
     - name: prepare third party grouped cache yum Nexus repo
       yum_repository:
         name: tpc
