@@ -46,6 +46,7 @@
     DEVENVTAG: "{{ devenv_image_tag }}"
     BUILD: "true"
     FETCH: "false"
+    QUIT: "true"
     BUILD_DEV_ENV_ON_PULL_FAIL: 1
     BUILD_TEST_CONTAINERS: 1
     CONTRAIL_BUILD_FROM_SOURCE: 1
