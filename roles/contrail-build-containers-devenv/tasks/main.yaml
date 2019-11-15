@@ -44,8 +44,8 @@
   environment:
     IMAGE: "{{ devenv_image_name }}"
     DEVENVTAG: "{{ devenv_image_tag }}"
-    AUTOBUILD: 1
-    QUIT: "true"
+    BUILD: "true"
+    FETCH: "false"
     BUILD_DEV_ENV_ON_PULL_FAIL: 1
     BUILD_TEST_CONTAINERS: 1
     CONTRAIL_BUILD_FROM_SOURCE: 1
