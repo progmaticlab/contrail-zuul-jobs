@@ -37,18 +37,13 @@
     dest: "{{ devenv_dir }}/common.env.tmpl"
 
 - name: Build containers
-  shell: "./startup.sh"
+  shell: "./startup.sh \"configure,compile,package\""
   become: true
   args:
     chdir: "{{ devenv_dir }}"
   environment:
     IMAGE: "{{ devenv_image_name }}"
     DEVENVTAG: "{{ devenv_image_tag }}"
-    BUILD: "true"
-    FETCH: "false"
-    QUIT: "true"
-    BUILD_DEV_ENV_ON_PULL_FAIL: 1
-    BUILD_TEST_CONTAINERS: 1
     CONTRAIL_BUILD_FROM_SOURCE: 1
     CONTRAIL_CONTAINER_TAG: "{{ containers_tag }}"
     OPENSTACK_VERSIONS: "ocata,queens,rocky"
