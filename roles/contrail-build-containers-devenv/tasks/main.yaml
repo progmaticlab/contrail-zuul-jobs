@@ -42,6 +42,7 @@
   args:
     chdir: "{{ devenv_dir }}"
   environment:
+    DEBUG: "true"
     IMAGE: "{{ devenv_image_name }}"
     DEVENVTAG: "{{ devenv_image_tag }}"
     CONTRAIL_BUILD_FROM_SOURCE: 1
