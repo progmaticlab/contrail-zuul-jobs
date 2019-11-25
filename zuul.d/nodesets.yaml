@@ -26,7 +26,7 @@
     name: builder-rhel-7
     nodes:
       - name: builder
-        label: rhel-7-medium
+        label: rhel-7-large
 
 - nodeset:
     name: c7-systest-c-aio
