@@ -98,6 +98,18 @@
   - include: testrunner.yaml
     with_items: '{{ unittest_target.stdout_lines[-1].split() }}'
 
+  - name: DBG pip list
+    command: 'pip list'
+    become: true
+    ignore_errors: true
+
+  - name: DBG pip list venv
+    shell: |
+      source {{ venv_dir }}/bin/activate
+      pip list
+    become: true
+    ignore_errors: true
+
   - name: fail if any test target failed
     fail:
       msg: 'there are test fails'
