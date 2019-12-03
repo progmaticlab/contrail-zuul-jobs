@@ -49,8 +49,6 @@
     CONTRAIL_CONTAINER_TAG: "{{ containers_tag }}"
     OPENSTACK_VERSIONS: "ocata,queens,rocky"
     CONTRAIL_DIR: "{{ ansible_env.HOME }}/{{ packaging.target_dir }}"
-    EXTERNAL_REPOS: "{{ ansible_env.HOME }}/src"
-    CANONICAL_HOSTNAME: "{{ zuul.project.canonical_hostname }}"
     REGISTRY_IP: "{{ contrail_docker_registry.split(':')[0] }}"
     REGISTRY_PORT: "{{ contrail_docker_registry.split(':')[1] }}"
     SITE_MIRROR: "http://{{ zuul_site_mirror_fqdn }}/repository"
